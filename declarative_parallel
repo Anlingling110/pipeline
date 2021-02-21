@@ -5,16 +5,16 @@ pipeline {
         stage('b并行的parallel') {
             parallel {
                 stage('stage 2.1') {
-                    agent master
-                    step {
+                    agent {master}
+                    steps {
                         echo '并行任务1'
                         sh "ifconfig"
                         sh "sleep 1"
                     }
                 }
                 stage('stage 2.2') {
-                    agent master
-                    step {
+                    agent {master}
+                    steps {
                         echo '并行任务2'
                         sh "pwd"
                         sh "sleep 1"
